@@ -40,7 +40,7 @@ class TestScheduleCommWindows:
         assert isinstance(activity, WgsXbandCommWindow)
         assert activity.begin_time == wgs_window['Start Time']
         assert activity.end_time == wgs_window['End Time']
-        assert Claimables.XBAND in [c['resource'] for c in activity.claims]
+        assert Claimables.XBAND in [c.resource for c in activity.claims]
     
     def test_schedule_sband_comm_windows(self, scheduler):
         """Test scheduling S-band comm windows."""
@@ -63,4 +63,4 @@ class TestScheduleCommWindows:
         assert 'ASF' in activity.name
         assert activity.begin_time == asf_window['Start Time']
         assert activity.end_time == asf_window['End Time']
-        assert Claimables.SBAND in [c['resource'] for c in activity.claims]
+        assert Claimables.SBAND in [c.resource for c in activity.claims]
