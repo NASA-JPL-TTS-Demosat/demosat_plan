@@ -43,6 +43,9 @@ from demosat_plan.activities.spacecraft_activities import (
     SlewActivity, CalibrationActivity, AdcsYaw
 )
 
+from demosat_plan.activities.plan_activities import (
+    HandoverActivity
+)
 import tts_spice.furnish
 import spiceypy as sp
 
@@ -68,7 +71,9 @@ class DemosatScheduler(Scheduler):
                  end_time: datetime = None,
                  ephemeris_container = None,
                  comm_window_container = None,
-                 orbit_event_container = None):
+                 orbit_event_container = None,
+                 handovers: List[Tuple[datetime, str]] = None,
+                 ):
         """
         Initialize a new DemosatScheduler.
         
@@ -84,7 +89,8 @@ class DemosatScheduler(Scheduler):
         self.ephemeris_container = ephemeris_container
         self.comm_window_container = comm_window_container
         self.orbit_event_container = orbit_event_container
-        
+        self.handovers = handovers
+
         # Track when the last calibration was scheduled
         self.last_calibration_time = None
         
@@ -116,6 +122,9 @@ class DemosatScheduler(Scheduler):
         
         # Schedule orbit quadrants based on orbit events
         self.schedule_orbit_quadrants()
+
+        # Schedule plan handovers
+        self.schedule_handovers()
 
         # Schedule ADCS Yaw activities at ascending nodes
         self.schedule_adcs_yaw_activities()
@@ -511,7 +520,16 @@ class DemosatScheduler(Scheduler):
                 
                 # Remove this exit so it's not used again
                 shadow_exits.remove((exit_time, exit_orbit))
-    
+
+    def schedule_handovers(self) -> None:
+        for handover_time, seqid in self.handovers:
+            handover_activity = HandoverActivity(
+                handover_time=handover_time,
+                seqid=seqid
+            )
+            self.add_activity(handover_activity)
+
+
     def schedule_science_activities(self) -> None:
         """
         Schedule science activities for each quadrant of the orbit.
