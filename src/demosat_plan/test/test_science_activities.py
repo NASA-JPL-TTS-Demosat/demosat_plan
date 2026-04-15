@@ -7,10 +7,10 @@ from datetime import datetime, timedelta
 from unittest.mock import MagicMock, patch
 
 from demosat_plan.demosat_scheduler import DemosatScheduler
-from demosat_plan.orbit_events import (
+from demosat_plan.activities.orbit_events import (
     NHemisphereDay, NHemisphereNight, SHemisphereDay, SHemisphereNight
 )
-from demosat_plan.science_activities import (
+from demosat_plan.activities.science_activities import (
     NHemisphereDayScience, NHemisphereNightScience,
     SHemisphereDayScience, SHemisphereNightScience
 )

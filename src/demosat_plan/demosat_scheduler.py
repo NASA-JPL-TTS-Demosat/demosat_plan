@@ -18,14 +18,14 @@ from tts_plan.activity import Activity
 from demosat_plan.claimables import Claimables
 
 # Import from orbit_events module
-from demosat_plan.orbit_events import (
+from demosat_plan.activities.orbit_events import (
     AscendingNode, DescendingNode, NPoleCrossing, SPoleCrossing,
     EarthShadow, NHemisphereDay, NHemisphereNight,
     SHemisphereDay, SHemisphereNight
 )
 
 # Import from comm_activities module
-from demosat_plan.comm_activities import (
+from demosat_plan.activities.comm_activities import (
     XbandCommWindow, SbandCommWindow,
     WgsXbandCommWindow, WgsSbandCommWindow,
     AsfXbandCommWindow, AsfSbandCommWindow,
@@ -33,13 +33,13 @@ from demosat_plan.comm_activities import (
 )
 
 # Import from science_activities module
-from demosat_plan.science_activities import (
+from demosat_plan.activities.science_activities import (
     NHemisphereDayScience, NHemisphereNightScience,
     SHemisphereDayScience, SHemisphereNightScience,
 )
 
 # Import from spacecraft_activities module
-from demosat_plan.spacecraft_activities import (
+from demosat_plan.activities.spacecraft_activities import (
     SlewActivity, CalibrationActivity, AdcsYaw
 )
 

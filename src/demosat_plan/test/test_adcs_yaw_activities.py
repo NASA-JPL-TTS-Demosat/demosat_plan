@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 from unittest.mock import MagicMock, patch
 
 from demosat_plan.demosat_scheduler import DemosatScheduler
-from demosat_plan.spacecraft_activities import AdcsYaw
+from demosat_plan.activities.spacecraft_activities import AdcsYaw
 
 
 class TestScheduleAdcsYawActivities:

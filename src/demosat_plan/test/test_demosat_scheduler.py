@@ -8,20 +8,20 @@ from unittest.mock import MagicMock, patch
 
 from demosat_plan.demosat_scheduler import DemosatScheduler
 from demosat_plan.claimables import Claimables
-from demosat_plan.comm_activities import (
+from demosat_plan.activities.comm_activities import (
     XbandCommWindow, SbandCommWindow, 
     WgsXbandCommWindow, AsfSbandCommWindow
 )
-from demosat_plan.orbit_events import (
+from demosat_plan.activities.orbit_events import (
     AscendingNode, DescendingNode, NPoleCrossing, SPoleCrossing,
     EarthShadow, NHemisphereDay, NHemisphereNight, 
     SHemisphereDay, SHemisphereNight
 )
-from demosat_plan.science_activities import (
+from demosat_plan.activities.science_activities import (
     NHemisphereDayScience, NHemisphereNightScience,
     SHemisphereDayScience, SHemisphereNightScience
 )
-from demosat_plan.spacecraft_activities import (
+from demosat_plan.activities.spacecraft_activities import (
     SlewActivity, CalibrationActivity, AdcsYaw
 )
 

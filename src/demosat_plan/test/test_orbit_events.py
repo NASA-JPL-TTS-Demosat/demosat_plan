@@ -6,7 +6,7 @@ import pytest
 from datetime import datetime, timedelta
 from unittest.mock import MagicMock
 
-from demosat_plan.orbit_events import (
+from demosat_plan.activities.orbit_events import (
     AscendingNode, DescendingNode, EarthShadow, NHemisphereDay
 )
 from demosat_plan.demosat_scheduler import DemosatScheduler
