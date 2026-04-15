@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 from unittest.mock import MagicMock
 
 from demosat_plan.claimables import Claimables
-from demosat_plan.comm_activities import WgsXbandCommWindow
+from demosat_plan.activities.comm_activities import WgsXbandCommWindow
 
 
 class TestScheduleCommWindows:
